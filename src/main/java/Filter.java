@@ -13,9 +13,11 @@ public class Filter {
     public List<Integer> filterOut(List<Integer> source) {
         Logger logger = Logger.getInstance();
         //List<Integer> result = new ArrayList<>();
-        Predicate<Integer> lambda = (i) -> {boolean isPositive = i > this.threshold;
+        Predicate<Integer> lambda = (i) -> {
+            boolean isPositive = i > this.threshold;
             logger.log("Элемент " + i + (isPositive ? "": " не") + " подходит");
-            return i > this.threshold;};
+            return i > this.threshold;
+        };
         List<Integer> result = source.stream()
                 .filter(lambda)
                 .collect(Collectors.toList());
